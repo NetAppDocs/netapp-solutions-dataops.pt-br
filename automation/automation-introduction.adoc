@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: automation/automation-introduction.html 
+summary: A automação de soluções da NetApp permite que o cliente automatize a implantação, a configuração e a execução de muitas tarefas comuns de infraestrutura e aplicativos. 
+keywords: netapp, solutions, automation, ansible, terraform 
+---
+= Automação de soluções NetApp
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+A automação de soluções da NetApp permite que o cliente automatize a implantação, a configuração e a execução de muitas tarefas comuns de infraestrutura e aplicativos.
+
+
+
+== Introdução
+
+Ao fornecer soluções para atender aos desafios empresariais atuais, a NetApp fornece soluções com os seguintes objetivos:
+
+* Fornecendo etapas de implantação e configuração validadas,
+* Fornecer soluções de fácil consumo,
+* Fornecer implantação de solução que tenha um resultado previsível, seja facilmente repetida e escalável em toda a empresa do cliente.
+
+
+Para atingir essas metas, é fundamental que a implantação e a configuração da infraestrutura e/ou dos aplicativos entregues por meio de nossas soluções sejam simplificadas por meio da automação.  A NetApp está comprometida em simplificar o consumo de soluções por meio da automação.
+
+Utilizando ferramentas de automação de código aberto, como Red Hat Ansible, HashiCorp Terraform ou Microsoft Powershell, as soluções da NetApp têm a capacidade de automatizar a implantação de aplicativos, o provisionamento em nuvem, o gerenciamento de configuração e muitas outras tarefas comuns de TI.  As soluções da NetApp aproveitam artefatos de automação disponíveis publicamente — além de fornecer automação criada pela NetApp — para simplificar a implantação geral de uma solução.
+
+Quando houver recursos de automação disponíveis, o material da solução guiará o usuário pelo processo de automatização da solução ou das etapas da solução por meio das ferramentas de automação específicas.

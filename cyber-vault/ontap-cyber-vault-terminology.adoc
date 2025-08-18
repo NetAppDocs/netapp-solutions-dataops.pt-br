@@ -1,0 +1,37 @@
+---
+sidebar: sidebar 
+keywords: Cyber vault, cybervault, cyber-vault, data protection, security, ransomware, ONTAP, hardening 
+permalink: cyber-vault/ontap-cyber-vault-terminology.html 
+summary: Cofre cibernético com terminologia ONTAP 
+---
+= Terminologia ONTAP do cofre cibernético
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Esses são os termos comumente usados em arquiteturas de cofres cibernéticos.
+
+*Proteção Autônoma contra Ransomware (ARP)* - O recurso Proteção Autônoma contra Ransomware (ARP) usa análise de carga de trabalho em ambientes NAS (NFS e SMB) para detectar e alertar proativamente e em tempo real sobre atividades anormais que podem indicar um ataque de ransomware.  Quando há suspeita de ataque, o ARP também cria novas cópias de Snapshot, além da proteção existente de cópias de Snapshot agendadas.  Para mais informações, consulte olink:https://docs.netapp.com/us-en/ontap/anti-ransomware/index.html["Documentação do ONTAP sobre Proteção Autônoma contra Ransomware"^]
+
+*Air-gap (lógico)* - Você pode configurar o armazenamento NetApp com ONTAP como um cofre cibernético lógico com air-gap, aproveitandolink:https://docs.netapp.com/us-en/ontap/snaplock/commit-snapshot-copies-worm-concept.html["SnapLock Compliance com cópias de Snapshot protegidas por WORM"^]
+
+*Air-gap (Físico)* - Um sistema físico air-gap não tem conectividade de rede com ele.  Usando backups em fita, você pode mover as imagens para outro local.  O sistema de air-gap lógico SnapLock Compliance é tão robusto quanto um sistema de air-gap físico.
+
+*Host Bastion* - Um computador dedicado em uma rede isolada, configurado para resistir a ataques.
+
+*Cópias de snapshot imutáveis* - Cópias de snapshot que não podem ser modificadas, sem exceção (incluindo uma organização de suporte ou a capacidade de formatar em baixo nível o sistema de armazenamento).
+
+*Cópias de instantâneos indeléveis* - Cópias de instantâneos que não podem ser excluídas, sem exceção (incluindo uma organização de suporte ou a capacidade de formatar em baixo nível o sistema de armazenamento).
+
+*Cópias Snapshot à prova de violação* - Cópias Snapshot à prova de violação usam o recurso de relógio de SnapLock Compliance para bloquear cópias Snapshot por um período especificado.  Esses snapshots bloqueados não podem ser excluídos por nenhum usuário ou pelo suporte da NetApp .  Você pode usar cópias bloqueadas do Snapshot para recuperar dados se um volume for comprometido por um ataque de ransomware, malware, hacker, administrador desonesto ou exclusão acidental.  Para mais informações, consulte olink:https://docs.netapp.com/us-en/ontap/snaplock/snapshot-lock-concept.html["Documentação ONTAP sobre cópias de Snapshot à prova de violação"^]
+
+* SnapLock* - O SnapLock é uma solução de conformidade de alto desempenho para organizações que usam armazenamento WORM para reter arquivos em formato inalterado para fins regulatórios e de governança. Para obter mais informações, consulte o link:https://docs.netapp.com/us-en/ontap/snaplock/["Documentação ONTAP sobre SnapLock"^] .
+
+* SnapMirror* - SnapMirror é uma tecnologia de replicação de recuperação de desastres, projetada para replicar dados de forma eficiente.  O SnapMirror pode criar um espelho (ou cópia exata dos dados), um cofre (uma cópia dos dados com retenção de cópia do Snapshot mais longa) ou ambos para um sistema secundário, no local ou na nuvem.  Essas cópias podem ser usadas para muitos propósitos diferentes, como em um desastre, em um estouro na nuvem ou em um cofre cibernético (ao usar a política de cofre e bloquear o cofre).  Para mais informações, consulte olink:https://docs.netapp.com/us-en/ontap/concepts/snapmirror-disaster-recovery-data-transfer-concept.html["Documentação do ONTAP no SnapMirror"^]
+
+* SnapVault* - No ONTAP 9.3, o SnapVault foi descontinuado em favor da configuração do SnapMirror usando a política vault ou mirror-vault.  Esse termo, embora ainda usado, também foi depreciado. Para obter mais informações, consulte o link:https://docs.netapp.com/us-en/ontap/concepts/snapvault-archiving-concept.html["Documentação do ONTAP no SnapVault"^] .

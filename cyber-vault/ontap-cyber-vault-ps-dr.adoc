@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: cyber-vault/ontap-cyber-vault-ps-dr.html 
+keywords: Cyber vault, powershell, script, configuration, validation, hardening 
+summary: Esta é a solução NetApp ONTAP para configurar, fortalecer e validar um cofre cibernético baseado em ONTAP 
+---
+= Recuperação de dados do cofre cibernético ONTAP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se os dados forem destruídos no datacenter de produção, os dados do cofre cibernético podem ser recuperados com segurança no ambiente escolhido.  Diferentemente de uma solução fisicamente isolada, o cofre cibernético ONTAP isolado é criado usando recursos nativos do ONTAP , como SnapLock Compliance e SnapMirror.  O resultado é um processo de recuperação rápido e fácil de executar.
+
+No caso de um ataque de ransomware e necessidade de recuperação do cofre cibernético, o processo de recuperação é simples e fácil, pois as cópias instantâneas armazenadas no cofre cibernético são usadas para restaurar os dados criptografados.
+
+image:ontap-cyber-vault-data-recovery.png["Restaurar relacionamento"]
+
+Se o requisito for fornecer um método mais rápido para colocar os dados novamente online quando necessário, valide, isole e analise rapidamente os dados para recuperação.  Isso pode ser facilmente alcançado usando o FlexClone com a opção do tipo snaplock definida como tipo não snaplock.
+
+
+NOTE: A partir do ONTAP 9.13.1, a restauração de uma cópia bloqueada do Snapshot no volume SnapLock de destino de um relacionamento de cofre SnapLock pode ser restaurada instantaneamente criando um FlexClone com a opção snaplock-type definida como "não snaplock".  Ao executar a operação de criação de clone de volume, especifique a cópia do Snapshot como "parent-snapshot".  Mais informações sobre como criar um volume FlexClone com um tipo SnapLocklink:https://docs.netapp.com/us-en/ontap/volumes/create-flexclone-task.html?q=volume+clone["aqui."]
+
+
+NOTE: Praticar procedimentos de recuperação do cofre cibernético garantirá que as etapas adequadas sejam estabelecidas para conectar-se ao cofre cibernético e recuperar dados.  Planejar e testar o procedimento é essencial para qualquer recuperação durante um evento de ataque cibernético.

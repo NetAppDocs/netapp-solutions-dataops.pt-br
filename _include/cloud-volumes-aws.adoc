@@ -1,0 +1,472 @@
+= 
+:allow-uri-read: 
+
+
+[role="tabbed-block"]
+====
+.Implantação de nó único CVO
+--
+.Arquivos de configuração do Terraform para implantação do NetApp CVO (Single Node Instance) na AWS
+Esta seção contém vários arquivos de configuração do Terraform para implantar/configurar o NetApp CVO (Cloud Volumes ONTAP) de nó único na AWS (Amazon Web Services).
+
+Documentação do Terraform: https://registry.terraform.io/providers/NetApp/netapp-cloudmanager/latest/docs[]
+
+.Procedimento
+Para executar o modelo:
+
+. Clone o repositório.
++
+[source, cli]
+----
+    git clone https://github.com/NetApp/na_cloud_volumes_automation.git
+----
+. Navegue até a pasta desejada
++
+[source, cli]
+----
+    cd na_cloud_volumes_automation/
+----
+. Configure as credenciais da AWS a partir da CLI.
++
+[source, cli]
+----
+    aws configure
+----
++
+** ID da chave de acesso da AWS [Nenhum]: accesskey
+** Chave de acesso secreta da AWS [Nenhuma]: secretkey
+** Nome da região padrão [Nenhum]: us-west-2
+** Formato de saída padrão [Nenhum]: json
+
+
+. Atualizar os valores das variáveis em `vars/aws_cvo_single_node_deployment.tfvar`
++
+
+NOTE: Você pode optar por implantar o conector definindo o valor da variável "aws_connector_deploy_bool" como verdadeiro/falso.
+
+. Inicialize o repositório do Terraform para instalar todos os pré-requisitos e preparar para a implantação.
++
+[source, cli]
+----
+    terraform init
+----
+. Verifique os arquivos do Terraform usando o comando terraform validate.
++
+[source, cli]
+----
+    terraform validate
+----
+. Faça uma execução de teste da configuração para obter uma prévia de todas as alterações esperadas pela implantação.
++
+[source, cli]
+----
+    terraform plan -target="module.aws_sn" -var-file="vars/aws_cvo_single_node_deployment.tfvars"
+----
+. Execute a implantação
++
+[source, cli]
+----
+    terraform apply -target="module.aws_sn" -var-file="vars/aws_cvo_single_node_deployment.tfvars"
+----
+
+
+Para excluir a implantação
+
+[source, cli]
+----
+    terraform destroy
+----
+.Receitas:
+`Connector`
+
+Variáveis do Terraform para instância do conector NetApp AWS para implantação de CVO.
+
+[cols="20%, 10%, 70%"]
+|===
+| *Nome* | *Tipo* | *Descrição* 
+
+
+| *aws_connector_deploy_bool* | Bool | (Obrigatório) Verifique a implantação do conector. 
+
+
+| *nome_do_conector_aws* | Corda | (Obrigatório) O nome do Cloud Manager Connector. 
+
+
+| *região_do_conector_aws* | Corda | (Obrigatório) A região onde o Cloud Manager Connector será criado. 
+
+
+| *nome_da_chave_do_conector_aws* | Corda | (Obrigatório) O nome do par de chaves a ser usado para a instância do Conector. 
+
+
+| *empresa_conectora_aws* | Corda | (Obrigatório) O nome da empresa do usuário. 
+
+
+| *tipo_de_instância_do_conector_aws* | Corda | (Obrigatório) O tipo de instância (por exemplo, t3.xlarge).  São necessárias pelo menos 4 CPUs e 16 GB de memória. 
+
+
+| *ID_da_sub-rede_do_conector_aws* | Corda | (Obrigatório) O ID da sub-rede da instância. 
+
+
+| *ID do grupo de segurança do conector aws* | Corda | (Obrigatório) O ID do grupo de segurança para a instância, vários grupos de segurança podem ser fornecidos separados por ','. 
+
+
+| *aws_connector_iam_instance_profile_name* | Corda | (Obrigatório) O nome do perfil de instância do Conector. 
+
+
+| *ID_da_conta_do_conector_aws* | Corda | (Opcional) O ID da conta NetApp à qual o Conector será associado.  Se não for fornecido, o Cloud Manager usará a primeira conta.  Se não houver nenhuma conta, o Cloud Manager criará uma nova conta.  Você pode encontrar o ID da conta na guia de conta do Cloud Manager em https://cloudmanager.netapp.com[] . 
+
+
+| *aws_connector_public_ip_bool* | Bool | (Opcional) Indica se um endereço IP público deve ser associado à instância.  Se não for fornecido, a associação será feita com base na configuração da sub-rede. 
+|===
+`Single Node Instance`
+
+Variáveis do Terraform para uma única instância do NetApp CVO.
+
+[cols="20%, 10%, 70%"]
+|===
+| *Nome* | *Tipo* | *Descrição* 
+
+
+| *nome_cvo* | Corda | (Obrigatório) O nome do ambiente de trabalho do Cloud Volumes ONTAP . 
+
+
+| *região_cvo* | Corda | (Obrigatório) A região onde o ambiente de trabalho será criado. 
+
+
+| *id_da_sub-rede_cvo* | Corda | (Obrigatório) O ID da sub-rede onde o ambiente de trabalho será criado. 
+
+
+| *cvo_vpc_id* | Corda | (Opcional) O ID da VPC onde o ambiente de trabalho será criado.  Se este argumento não for fornecido, a VPC será calculada usando o ID de sub-rede fornecido. 
+
+
+| *senha_cvo_svm* | Corda | (Obrigatório) A senha de administrador do Cloud Volumes ONTAP. 
+
+
+| *estado_de_velocidade_de_escrita_cvo* | Corda | (Opcional) A configuração de velocidade de gravação para Cloud Volumes ONTAP: ['NORMAL','ALTA'].  O padrão é 'NORMAL'. 
+|===
+--
+.Implantação de CVO HA
+--
+.Arquivos de configuração do Terraform para implantação do NetApp CVO (par HA) na AWS
+Esta seção contém vários arquivos de configuração do Terraform para implantar/configurar o NetApp CVO (Cloud Volumes ONTAP) em par de alta disponibilidade na AWS (Amazon Web Services).
+
+Documentação do Terraform: https://registry.terraform.io/providers/NetApp/netapp-cloudmanager/latest/docs[]
+
+.Procedimento
+Para executar o modelo:
+
+. Clone o repositório.
++
+[source, cli]
+----
+    git clone https://github.com/NetApp/na_cloud_volumes_automation.git
+----
+. Navegue até a pasta desejada
++
+[source, cli]
+----
+    cd na_cloud_volumes_automation/
+----
+. Configure as credenciais da AWS a partir da CLI.
++
+[source, cli]
+----
+    aws configure
+----
++
+** ID da chave de acesso da AWS [Nenhum]: accesskey
+** Chave de acesso secreta da AWS [Nenhuma]: secretkey
+** Nome da região padrão [Nenhum]: us-west-2
+** Formato de saída padrão [Nenhum]: json
+
+
+. Atualizar os valores das variáveis em `vars/aws_cvo_ha_deployment.tfvars` .
++
+
+NOTE: Você pode optar por implantar o conector definindo o valor da variável "aws_connector_deploy_bool" como verdadeiro/falso.
+
+. Inicialize o repositório do Terraform para instalar todos os pré-requisitos e preparar para a implantação.
++
+[source, cli]
+----
+      terraform init
+----
+. Verifique os arquivos do Terraform usando o comando terraform validate.
++
+[source, cli]
+----
+    terraform validate
+----
+. Faça uma execução de teste da configuração para obter uma prévia de todas as alterações esperadas pela implantação.
++
+[source, cli]
+----
+    terraform plan -target="module.aws_ha" -var-file="vars/aws_cvo_ha_deployment.tfvars"
+----
+. Execute a implantação
++
+[source, cli]
+----
+    terraform apply -target="module.aws_ha" -var-file="vars/aws_cvo_ha_deployment.tfvars"
+----
+
+
+Para excluir a implantação
+
+[source, cli]
+----
+    terraform destroy
+----
+.Receitas:
+`Connector`
+
+Variáveis do Terraform para instância do conector NetApp AWS para implantação de CVO.
+
+[cols="20%, 10%, 70%"]
+|===
+| *Nome* | *Tipo* | *Descrição* 
+
+
+| *aws_connector_deploy_bool* | Bool | (Obrigatório) Verifique a implantação do conector. 
+
+
+| *nome_do_conector_aws* | Corda | (Obrigatório) O nome do Cloud Manager Connector. 
+
+
+| *região_do_conector_aws* | Corda | (Obrigatório) A região onde o Cloud Manager Connector será criado. 
+
+
+| *nome_da_chave_do_conector_aws* | Corda | (Obrigatório) O nome do par de chaves a ser usado para a instância do Conector. 
+
+
+| *empresa_conectora_aws* | Corda | (Obrigatório) O nome da empresa do usuário. 
+
+
+| *tipo_de_instância_do_conector_aws* | Corda | (Obrigatório) O tipo de instância (por exemplo, t3.xlarge).  São necessárias pelo menos 4 CPUs e 16 GB de memória. 
+
+
+| *ID_da_sub-rede_do_conector_aws* | Corda | (Obrigatório) O ID da sub-rede da instância. 
+
+
+| *ID do grupo de segurança do conector aws* | Corda | (Obrigatório) O ID do grupo de segurança para a instância, vários grupos de segurança podem ser fornecidos separados por ','. 
+
+
+| *aws_connector_iam_instance_profile_name* | Corda | (Obrigatório) O nome do perfil de instância do Conector. 
+
+
+| *ID_da_conta_do_conector_aws* | Corda | (Opcional) O ID da conta NetApp à qual o Conector será associado.  Se não for fornecido, o Cloud Manager usará a primeira conta.  Se não houver nenhuma conta, o Cloud Manager criará uma nova conta.  Você pode encontrar o ID da conta na guia de conta do Cloud Manager em https://cloudmanager.netapp.com[] . 
+
+
+| *aws_connector_public_ip_bool* | Bool | (Opcional) Indica se um endereço IP público deve ser associado à instância.  Se não for fornecido, a associação será feita com base na configuração da sub-rede. 
+|===
+`HA Pair`
+
+Variáveis do Terraform para instâncias do NetApp CVO no HA Pair.
+
+[cols="20%, 10%, 70%"]
+|===
+| *Nome* | *Tipo* | *Descrição* 
+
+
+| *cvo_is_ha* | Bool | (Opcional) Indique se o ambiente de trabalho é um par HA ou não [verdadeiro, falso].  O padrão é falso. 
+
+
+| *nome_cvo* | Corda | (Obrigatório) O nome do ambiente de trabalho do Cloud Volumes ONTAP . 
+
+
+| *região_cvo* | Corda | (Obrigatório) A região onde o ambiente de trabalho será criado. 
+
+
+| *id_da_sub-rede_cvo_node1* | Corda | (Obrigatório) O ID da sub-rede onde o primeiro nó será criado. 
+
+
+| *id_da_sub-rede_cvo_node2* | Corda | (Obrigatório) O ID da sub-rede onde o segundo nó será criado. 
+
+
+| *cvo_vpc_id* | Corda | (Opcional) O ID da VPC onde o ambiente de trabalho será criado.  Se este argumento não for fornecido, a VPC será calculada usando o ID de sub-rede fornecido. 
+
+
+| *senha_cvo_svm* | Corda | (Obrigatório) A senha de administrador do Cloud Volumes ONTAP. 
+
+
+| *modo_failover_cvo* | Corda | (Opcional) Para HA, o modo de failover para o par HA: ['PrivateIP', 'FloatingIP'].  'PrivateIP' é para uma única zona de disponibilidade e 'FloatingIP' é para múltiplas zonas de disponibilidade. 
+
+
+| *cvo_mediator_subnet_id* | Corda | (Opcional) Para HA, o ID de sub-rede do mediador. 
+
+
+| *nome_do_par_de_chaves_cvo_mediator* | Corda | (Opcional) Para HA, o nome do par de chaves para a instância do mediador. 
+
+
+| *cvo_cluster_floating_ip* | Corda | (Opcional) Para HA FloatingIP, o endereço IP flutuante de gerenciamento do cluster. 
+
+
+| *cvo_data_floating_ip* | Corda | (Opcional) Para HA FloatingIP, o endereço IP flutuante de dados. 
+
+
+| *cvo_data_floating_ip2* | Corda | (Opcional) Para HA FloatingIP, o endereço IP flutuante de dados. 
+
+
+| *cvo_svm_ip_flutuante* | Corda | (Opcional) Para HA FloatingIP, o endereço IP flutuante de gerenciamento de SVM. 
+
+
+| *id_da_tabela_de_rota_cvo* | Lista | (Opcional) Para HA FloatingIP, a lista de IDs da tabela de rotas que serão atualizadas com os IPs flutuantes. 
+|===
+--
+.Implantação do FSx
+--
+.Arquivos de configuração do Terraform para implantação do NetApp ONTAP FSx na AWS
+Esta seção contém vários arquivos de configuração do Terraform para implantar/configurar o NetApp ONTAP FSx na AWS (Amazon Web Services).
+
+Documentação do Terraform: https://registry.terraform.io/providers/NetApp/netapp-cloudmanager/latest/docs[]
+
+.Procedimento
+Para executar o modelo:
+
+. Clone o repositório.
++
+[source, cli]
+----
+    git clone https://github.com/NetApp/na_cloud_volumes_automation.git
+----
+. Navegue até a pasta desejada
++
+[source, cli]
+----
+    cd na_cloud_volumes_automation/
+----
+. Configure as credenciais da AWS a partir da CLI.
++
+[source, cli]
+----
+    aws configure
+----
++
+** ID da chave de acesso da AWS [Nenhum]: accesskey
+** Chave de acesso secreta da AWS [Nenhuma]: secretkey
+** Nome da região padrão [Nenhum]: us-west-2
+** Formato de saída padrão [Nenhum]:
+
+
+. Atualizar os valores das variáveis em `vars/aws_fsx_deployment.tfvars`
++
+
+NOTE: Você pode optar por implantar o conector definindo o valor da variável "aws_connector_deploy_bool" como verdadeiro/falso.
+
+. Inicialize o repositório do Terraform para instalar todos os pré-requisitos e preparar para a implantação.
++
+[source, cli]
+----
+    terraform init
+----
+. Verifique os arquivos do Terraform usando o comando terraform validate.
++
+[source, cli]
+----
+    terraform validate
+----
+. Faça uma execução de teste da configuração para obter uma prévia de todas as alterações esperadas pela implantação.
++
+[source, cli]
+----
+    terraform plan -target="module.aws_fsx" -var-file="vars/aws_fsx_deployment.tfvars"
+----
+. Execute a implantação
++
+[source, cli]
+----
+    terraform apply -target="module.aws_fsx" -var-file="vars/aws_fsx_deployment.tfvars"
+----
+
+
+Para excluir a implantação
+
+[source, cli]
+----
+    terraform destroy
+----
+.Receitas:
+`Connector`
+
+Variáveis do Terraform para instância do conector NetApp AWS.
+
+[cols="20%, 10%, 70%"]
+|===
+| *Nome* | *Tipo* | *Descrição* 
+
+
+| *aws_connector_deploy_bool* | Bool | (Obrigatório) Verifique a implantação do conector. 
+
+
+| *nome_do_conector_aws* | Corda | (Obrigatório) O nome do Cloud Manager Connector. 
+
+
+| *região_do_conector_aws* | Corda | (Obrigatório) A região onde o Cloud Manager Connector será criado. 
+
+
+| *nome_da_chave_do_conector_aws* | Corda | (Obrigatório) O nome do par de chaves a ser usado para a instância do Conector. 
+
+
+| *empresa_conectora_aws* | Corda | (Obrigatório) O nome da empresa do usuário. 
+
+
+| *tipo_de_instância_do_conector_aws* | Corda | (Obrigatório) O tipo de instância (por exemplo, t3.xlarge).  São necessárias pelo menos 4 CPUs e 16 GB de memória. 
+
+
+| *ID_da_sub-rede_do_conector_aws* | Corda | (Obrigatório) O ID da sub-rede da instância. 
+
+
+| *ID do grupo de segurança do conector aws* | Corda | (Obrigatório) O ID do grupo de segurança para a instância, vários grupos de segurança podem ser fornecidos separados por ','. 
+
+
+| *aws_connector_iam_instance_profile_name* | Corda | (Obrigatório) O nome do perfil de instância do Conector. 
+
+
+| *ID_da_conta_do_conector_aws* | Corda | (Opcional) O ID da conta NetApp à qual o Conector será associado.  Se não for fornecido, o Cloud Manager usará a primeira conta.  Se não houver nenhuma conta, o Cloud Manager criará uma nova conta.  Você pode encontrar o ID da conta na guia de conta do Cloud Manager em https://cloudmanager.netapp.com[] . 
+
+
+| *aws_connector_public_ip_bool* | Bool | (Opcional) Indica se um endereço IP público deve ser associado à instância.  Se não for fornecido, a associação será feita com base na configuração da sub-rede. 
+|===
+`FSx Instance`
+
+Variáveis do Terraform para instância do NetApp ONTAP FSx.
+
+[cols="20%, 10%, 70%"]
+|===
+| *Nome* | *Tipo* | *Descrição* 
+
+
+| *nome_fsx* | Corda | (Obrigatório) O nome do ambiente de trabalho do Cloud Volumes ONTAP . 
+
+
+| *região_fsx* | Corda | (Obrigatório) A região onde o ambiente de trabalho será criado. 
+
+
+| *fsx_primary_subnet_id* | Corda | (Obrigatório) O ID da sub-rede primária onde o ambiente de trabalho será criado. 
+
+
+| *fsx_secondary_subnet_id* | Corda | (Obrigatório) O ID da sub-rede secundária onde o ambiente de trabalho será criado. 
+
+
+| *ID_da_conta_fsx* | Corda | (Obrigatório) O ID da conta NetApp à qual a instância do FSx será associada.  Se não for fornecido, o Cloud Manager usará a primeira conta.  Se não houver nenhuma conta, o Cloud Manager criará uma nova conta.  Você pode encontrar o ID da conta na guia de conta do Cloud Manager em https://cloudmanager.netapp.com[] . 
+
+
+| *id_do_espaço_de_trabalho_fsx* | Corda | (Obrigatório) O ID do espaço de trabalho do Cloud Manager do ambiente de trabalho. 
+
+
+| *senha_de_admin_fsx* | Corda | (Obrigatório) A senha de administrador do Cloud Volumes ONTAP. 
+
+
+| *capacidade_de_produção_do_fsx* | Corda | (Opcional) Capacidade de vazão. 
+
+
+| *tamanho_da_capacidade_de_armazenamento_fsx* | Corda | (Opcional) Tamanho do volume EBS para o primeiro agregado de dados.  Para GB, a unidade pode ser: [100 ou 500].  Para TB, a unidade pode ser: [1,2,4,8,16].  O padrão é '1' 
+
+
+| *unidade_de_tamanho_da_capacidade_de_armazenamento_fsx* | Corda | (Opcional) ['GB' ou 'TB'].  O padrão é 'TB'. 
+
+
+| *nome_da_credencial_do_fsx_cloudmanager_aws* | Corda | (Obrigatório) O nome da conta do AWS Credentials. 
+|===
+--
+====

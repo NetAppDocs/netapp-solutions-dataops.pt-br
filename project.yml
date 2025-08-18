@@ -1,0 +1,31 @@
+---
+settings:
+  name: NetApp data management solutions
+  internal:
+    pdf_enabled: true
+    lipi_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+    lipi_enabled: true
+  pdf:
+    gen-type: named-only
+    zip-level: 1
+    zip-filename: netapp-solutions-dataops.zip
+  langs: pt-br,us-en,de-de,es-es,fr-fr,it-it,ja-jp,ko-kr,zh-cn,zh-tw
+sidebar:
+  entries:
+  - title: Soluções de gerenciamento de dados
+    url: "/index.html"
+  - title: O que há de novo
+    url: "/whats-new.html"
+  - section: ontap-cybervault
+  - section: bp-xcp
+  - section: automation
+  - title: Recursos adicionais para proteção e segurança de dados
+    url: "/protection-security-resources.html"
+  - title: Avisos legais
+    url: "/legal-notices.html"
+product-family:
+  name: NetApp solutions
+  repo: netapp-solutions-family

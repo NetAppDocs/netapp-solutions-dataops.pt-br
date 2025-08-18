@@ -1,0 +1,39 @@
+---
+section: ontap-cybervault
+title: Proteção de dados com o cofre cibernético ONTAP
+pdf-filename: Cofre cibernético ONTAP
+entries:
+- title: Visão geral do cofre cibernético ONTAP
+  url: "/cyber-vault/ontap-cyber-vault-overview.html"
+- title: Terminologia do cofre cibernético
+  url: "/cyber-vault/ontap-cyber-vault-terminology.html"
+- title: Dimensionamento do cofre cibernético para ONTAP
+  url: "/cyber-vault/ontap-cyber-vault-sizing.html"
+- title: Crie um cofre cibernético
+  url: "/cyber-vault/ontap-create-cyber-vault-task.html"
+- title: Fortalecimento do cofre cibernético
+  url: "/cyber-vault/ontap-cyber-vault-hardening.html"
+- title: Interoperabilidade do cofre cibernético
+  url: "/cyber-vault/ontap-cyber-vault-interop.html"
+- title: Perguntas frequentes sobre o Cyber Vault
+  url: "/cyber-vault/ontap-cyber-vault-faq.html"
+- title: Recursos do cofre cibernético
+  url: "/cyber-vault/ontap-cyber-vault-resources.html"
+- title: Criação, reforço e validação de um cofre cibernético ONTAP com PowerShell
+  entries:
+  - title: Visão geral
+    url: "/cyber-vault/ontap-cyber-vault-ps-overview.html"
+  - title: Criação de cofre cibernético
+    url: "/cyber-vault/ontap-cyber-vault-ps-creation.html"
+  - title: Fortalecimento do cofre cibernético
+    url: "/cyber-vault/ontap-cyber-vault-ps-hardening.html"
+  - title: Validação do cofre cibernético
+    url: "/cyber-vault/ontap-cyber-vault-ps-validation.html"
+  - title: Recuperação de dados do cofre cibernético
+    url: "/cyber-vault/ontap-cyber-vault-ps-dr.html"
+  - title: Considerações adicionais
+    url: "/cyber-vault/ontap-cyber-vault-ps-consider.html"
+  - title: Configurar, analisar, script cron
+    url: "/cyber-vault/ontap-cyber-vault-ps-script.html"
+  - title: Conclusão do cofre cibernético
+    url: "/cyber-vault/ontap-cyber-vault-ps-conclusion.html"

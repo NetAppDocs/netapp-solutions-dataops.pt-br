@@ -1,0 +1,80 @@
+---
+sidebar: sidebar 
+permalink: cyber-vault/ontap-cyber-vault-ps-consider.html 
+keywords: Cyber vault, powershell, script, configuration, validation, hardening 
+summary: Esta é a solução NetApp ONTAP para configurar, fortalecer e validar um cofre cibernético baseado em ONTAP 
+---
+= Considerações adicionais
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Há considerações adicionais ao projetar e implantar um cofre cibernético baseado em ONTAP .
+
+
+
+== Considerações sobre dimensionamento de capacidade
+
+A quantidade de espaço em disco necessária para um volume de destino do cofre cibernético ONTAP depende de vários fatores, sendo o mais importante a taxa de alteração dos dados no volume de origem.  O agendamento de backup e o agendamento de instantâneo no volume de destino afetam o uso do disco no volume de destino, e a taxa de alteração no volume de origem provavelmente não será constante.  É uma boa ideia fornecer um buffer de capacidade de armazenamento adicional acima daquela necessária para acomodar futuras mudanças no comportamento do usuário final ou do aplicativo.
+
+Dimensionar um relacionamento para 1 mês de retenção no ONTAP requer o cálculo dos requisitos de armazenamento com base em vários fatores, incluindo o tamanho do conjunto de dados primário, a taxa de alteração de dados (taxa de alteração diária) e a economia com desduplicação e compactação (se aplicável).
+
+Aqui está a abordagem passo a passo:
+
+O primeiro passo é saber o tamanho do(s) volume(s) de origem que você está protegendo com o cofre cibernético.  Essa é a quantidade base de dados que será inicialmente replicada para o destino do cofre cibernético.  Em seguida, estime a taxa de alteração diária do conjunto de dados.  Esta é a porcentagem de dados que mudam todos os dias.  É crucial ter uma boa compreensão de quão dinâmicos são seus dados.
+
+Por exemplo:
+
+* Tamanho do conjunto de dados primário = 5 TB
+* Taxa de variação diária = 5% (0,05)
+* Eficiência de desduplicação e compressão = 50% (0,50)
+
+
+Agora, vamos analisar o cálculo:
+
+* Calcular a taxa de alteração diária de dados:
++
+`Changed data per day = 5000 * 5% = 250GB`
+
+* Calcule o total de dados alterados em 30 dias:
++
+`Total changed data in 30 days = 250 GB * 30 = 7.5TB`
+
+* Calcule o armazenamento total necessário:
++
+`TOTAL = 5TB + 7.5TB = 12.5TB`
+
+* Aplique economias de desduplicação e compactação:
++
+`EFFECTIVE = 12.5TB * 50% = 6.25TB`
+
+
+
+*Resumo das necessidades de armazenamento*
+
+* Sem eficiência: seriam necessários *12,5 TB* para armazenar 30 dias de dados do cofre cibernético.
+* Com 50% de eficiência: seriam necessários *6,25 TB* de armazenamento após desduplicação e compactação.
+
+
+
+NOTE: Cópias de instantâneos podem ter sobrecarga adicional devido aos metadados, mas isso geralmente é mínimo.
+
+
+NOTE: Se vários backups forem feitos por dia, ajuste o cálculo pelo número de cópias de Snapshot feitas a cada dia.
+
+
+NOTE: Considere o crescimento dos dados ao longo do tempo para garantir que o dimensionamento seja à prova do futuro.
+
+
+
+== Impacto no desempenho no primário/fonte
+
+Como a transferência de dados é uma operação pull, o impacto no desempenho do armazenamento primário pode variar dependendo da carga de trabalho, do volume de dados e da frequência dos backups.  No entanto, o impacto geral no desempenho do sistema primário é geralmente moderado e gerenciável, pois a transferência de dados é projetada para descarregar tarefas de proteção de dados e backup para o sistema de armazenamento do cofre cibernético.  Durante a configuração inicial do relacionamento e o primeiro backup completo, uma quantidade significativa de dados é transferida do sistema primário para o sistema de cofre cibernético (o volume SnapLock Compliance ).  Isso pode levar ao aumento do tráfego de rede e da carga de E/S no sistema primário.  Após a conclusão do backup completo inicial, o ONTAP só precisa rastrear e transferir os blocos que foram alterados desde o último backup.  Isso resulta em uma carga de E/S muito menor em comparação à replicação inicial.  Atualizações incrementais são eficientes e têm impacto mínimo no desempenho do armazenamento primário.  O processo do vault é executado em segundo plano, o que reduz as chances de interferência nas cargas de trabalho de produção do sistema primário.
+
+* Garantir que o sistema de armazenamento tenha recursos suficientes (CPU, memória e IOPs) para lidar com a carga adicional atenua o impacto no desempenho.
+

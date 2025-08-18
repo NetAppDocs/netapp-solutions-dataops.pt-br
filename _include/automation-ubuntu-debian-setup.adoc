@@ -1,0 +1,30 @@
+= 
+:allow-uri-read: 
+
+
+. Requisitos para o nó de controle do Ansible:
++
+.. Uma máquina Ubuntu/Debian com os seguintes pacotes instalados:
++
+... Python3
+... Pip3
+... Ansible (versão superior a 2.10.0)
+... Git
+
+
+
+
+
+
+Se você tiver uma máquina Ubuntu/Debian nova sem os requisitos acima instalados, siga os passos abaixo para configurar essa máquina como o nó de controle do Ansible:
+
+. Cole o conteúdo abaixo no terminal
++
+[source, cli]
+----
+sudo apt-get -y install python3 >> outputlog.txt
+sudo apt-get -y install python3-pip >> outputlog.txt
+python3 -W ignore -m pip --disable-pip-version-check install ansible >> outputlog.txt
+sudo apt-get -y install git >> outputlog.txt
+----
+

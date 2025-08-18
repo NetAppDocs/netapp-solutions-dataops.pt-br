@@ -1,0 +1,91 @@
+---
+sidebar: sidebar 
+permalink: cyber-vault/ontap-cyber-vault-ps-overview.html 
+keywords: Cyber vault, powershell, script, configuration, validation, hardening 
+summary: Esta é a solução NetApp ONTAP para configurar, fortalecer e validar um cofre cibernético baseado em ONTAP 
+---
+= Visão geral do cofre cibernético ONTAP com PowerShell
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+No cenário digital atual, proteger os ativos de dados críticos de uma organização não é apenas uma prática recomendada, é um imperativo comercial.  As ameaças cibernéticas estão evoluindo em um ritmo sem precedentes, e as medidas tradicionais de proteção de dados não são mais suficientes para manter as informações confidenciais seguras.  É aí que entra um cofre cibernético. A solução de ponta baseada em ONTAP da NetApp combina técnicas avançadas de air-gapping com medidas robustas de proteção de dados para criar uma barreira impenetrável contra ameaças cibernéticas.  Ao isolar os dados mais valiosos com tecnologia de proteção segura, um cofre cibernético minimiza a superfície de ataque para que os dados mais críticos permaneçam confidenciais, intactos e prontamente disponíveis quando necessário.
+
+Um cofre cibernético é uma instalação de armazenamento segura que consiste em várias camadas de proteção, como firewalls, rede e armazenamento.  Esses componentes protegem dados de recuperação vitais necessários para operações comerciais cruciais.  Os componentes do cofre cibernético são sincronizados regularmente com os dados essenciais de produção com base na política do cofre, mas, de outra forma, permanecem inacessíveis.  Essa configuração isolada e desconectada garante que, no caso de um ataque cibernético que comprometa o ambiente de produção, uma recuperação confiável e final possa ser facilmente realizada a partir do cofre cibernético.
+
+O NetApp permite a criação fácil de um air-gap para o cofre cibernético configurando a rede, desabilitando LIFs, atualizando regras de firewall e isolando o sistema de redes externas e da Internet.  Essa abordagem robusta desconecta efetivamente o sistema de redes externas e da Internet, fornecendo proteção incomparável contra ataques cibernéticos remotos e tentativas de acesso não autorizado, tornando o sistema imune a ameaças e intrusões baseadas na rede.
+
+Combinando isso com a proteção SnapLock Compliance , os dados não podem ser modificados ou excluídos, nem mesmo pelos administradores do ONTAP ou pelo Suporte da NetApp .  O SnapLock é auditado regularmente de acordo com as regulamentações da SEC e da FINRA, garantindo que a resiliência dos dados atenda a essas rigorosas regulamentações de WORM e retenção de dados do setor bancário.  O NetApp é o único armazenamento empresarial validado pela NSA CSfC para armazenar dados ultrassecretos.
+
+image:ontap-cyber-vault-logical-air-gap.png["Cofre cibernético ONTAP com espaço de ar e cópias SnapLock imutáveis e indeléveis"]
+
+Este documento descreve a configuração automatizada do cofre cibernético da NetApp para armazenamento ONTAP local para outro armazenamento ONTAP designado com instantâneos imutáveis, adicionando uma camada extra de proteção contra ataques cibernéticos crescentes para recuperação rápida.  Como parte dessa arquitetura, toda a configuração é aplicada de acordo com as melhores práticas do ONTAP .  A última seção contém instruções para executar uma recuperação em caso de ataque.
+
+
+NOTE: A mesma solução é aplicável para criar o cofre cibernético designado na AWS usando o FSx ONTAP.
+
+
+
+== Etapas de alto nível para criar um cofre cibernético ONTAP
+
+* Criar relacionamento de peering
++
+** O site de produção que usa o armazenamento ONTAP é pareado com o armazenamento ONTAP do cofre cibernético designado
+
+
+* Criar volume de SnapLock Compliance
+* Configurar relacionamento e regra do SnapMirror para definir rótulo
++
+** O relacionamento SnapMirror e os cronogramas apropriados são configurados
+
+
+* Defina retenções antes de iniciar a transferência do SnapMirror (cofre)
++
+** O bloqueio de retenção é aplicado aos dados copiados, o que os previne ainda mais contra qualquer acesso interno ou falha de dados.  Com isso, os dados não podem ser excluídos antes do término do período de retenção
+** As organizações podem manter esses dados por algumas semanas/meses, dependendo de suas necessidades
+
+
+* Inicializar o relacionamento SnapMirror com base em rótulos
++
+** A semeadura inicial e a transferência incremental permanente ocorrem com base no cronograma do SnapMirror
+** Os dados são protegidos (imutáveis e indeléveis) com a conformidade SnapLock e estão disponíveis para recuperação
+
+
+* Implementar controles rigorosos de transferência de dados
++
+** O cofre cibernético é desbloqueado por um período limitado com dados do site de produção e é sincronizado com os dados no cofre.  Uma vez concluída a transferência, a conexão é desconectada, fechada e bloqueada novamente
+
+
+* Recuperação rápida
++
+** Se o primário for afetado no local de produção, os dados do cofre cibernético serão recuperados com segurança para a produção original ou para outro ambiente escolhido
+
+
+
+
+image:ontap-cyber-vault-air-gap.png["Etapas de alto nível para criar um cofre cibernético ONTAP"]
+
+
+
+== Componentes da solução
+
+NetApp ONTAP executando 9.15.1 em clusters de origem e destino.
+
+ONTAP One: licença completa do NetApp ONTAP.
+
+Recursos usados da licença ONTAP One:
+
+* SnapLock Compliance
+* SnapMirror
+* Verificação de vários administradores
+* Todos os recursos de proteção expostos pelo ONTAP
+* Credenciais RBAC separadas para cofre cibernético
+
+
+
+NOTE: Todos os conjuntos físicos unificados ONTAP podem ser usados para um cofre cibernético, no entanto, os sistemas flash baseados em capacidade da série C da AFF e os sistemas flash híbridos da FAS são as plataformas ideais mais econômicas para essa finalidade.  Por favor consulte olink:ontap-cyber-vault-sizing.html["Dimensionamento do cofre cibernético ONTAP"] para orientação de dimensionamento.

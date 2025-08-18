@@ -1,0 +1,24 @@
+---
+sidebar: sidebar 
+permalink: xcp/xcp-bp-best-practices.html 
+keywords: best practices, guidelines, recommendations, IMT 
+summary: Esta seção contém práticas recomendadas, diretrizes e recomendações para migrar dados usando o NetApp XCP. 
+---
+= Diretrizes e recomendações de melhores práticas
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+* Use o sistema operacional do cliente XCP, que é suportado IMT .  O cliente com suporte IMT é qualificado pela NetApp.
+* Execute o XCP como usuário root no sistema operacional Linux para realizar a migração. Você pode executar o comando xcp como usuário sudo, mas ele não é suportado pelo XCP.
+* Execute apenas uma instância do XCP por cliente.  Tecnicamente, você pode executar várias instâncias do XCP no mesmo host a partir de um local diferente, no entanto, essa não é uma prática suportada.  De fato, executar muitas instâncias pode resultar em falha.
+* O XCP NFS é capaz de migrar de um conjunto de dados de origem ativo e essa configuração é suportada.  Migrações XCP SMB de um conjunto de dados de origem ativo não são suportadas e podem resultar em falhas.
+* É uma prática recomendada criar um novo snapshot com um nome diferente para cada sincronização incremental, para que seja fácil criar um caminho de migração incremental com base no nome do snapshot em caso de falha.
+* Se você estiver executando uma migração baseada em snapshot, é uma prática recomendada continuar a migração baseada em snapshot até a transição.
+* Se você tiver mais de 10 milhões de arquivos e tiver uma alteração incremental de dados de mais de 50%, é uma prática recomendada usar uma contagem de núcleos maior e mais memória do que a recomendação mínima no guia de instalação e administração.
+

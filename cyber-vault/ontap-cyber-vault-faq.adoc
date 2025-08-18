@@ -1,0 +1,154 @@
+---
+sidebar: sidebar 
+keywords: Cyber vault, cybervault, cyber-vault, data protection, security, ransomware, ONTAP, FAQ 
+permalink: cyber-vault/ontap-cyber-vault-faq.html 
+summary: Este documento contém perguntas frequentes sobre a solução de cofre cibernético NetApp ONTAP . 
+---
+= Perguntas frequentes sobre o Cyber Vault
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Estas perguntas frequentes são destinadas a clientes e parceiros da NetApp .  Ele responde a perguntas frequentes sobre a arquitetura de referência do cofre cibernético baseado em ONTAP da NetApp.
+
+
+
+== O que é um cofre cibernético da NetApp ?
+
+O cofre cibernético é uma técnica específica de proteção de dados que envolve o armazenamento de dados em um ambiente isolado, separado da infraestrutura primária de TI.
+
+O cofre cibernético é um repositório de dados "isolado", imutável e indelével, imune a ameaças que afetam os dados primários, como malware, ransomware ou ameaças internas.  Um cofre cibernético pode ser obtido com cópias imutáveis do NetApp ONTAP Snapshot e tornado indelével com o NetApp SnapLock Compliance.  Enquanto estiver sob a proteção de SnapLock Compliance , os dados não podem ser modificados ou excluídos, nem mesmo pelos administradores do ONTAP ou pelo Suporte da NetApp .
+
+Os backups com air-gapping usando métodos tradicionais envolvem a criação de espaço e a separação física das mídias primária e secundária.  O air-gapping com cofre cibernético inclui o uso de uma rede de replicação de dados separada, fora das redes de acesso a dados padrão, para replicar cópias do Snapshot para um destino indelével.
+
+Outros passos além das redes isoladas envolvem desabilitar todos os protocolos de acesso e replicação de dados no cofre cibernético quando eles não são necessários.  Isso evita o acesso ou a exfiltração de dados no site de destino.  Com o SnapLock Compliance, a separação física não é necessária.  O SnapLock Compliance protege suas cópias de Snapshot em cofre, em um ponto específico no tempo e somente leitura, resultando em recuperação rápida de dados, seguras contra exclusão e imutáveis.
+
+
+
+== Abordagem da NetApp para cofre cibernético
+
+O NetApp Cyber Vault, com tecnologia SnapLock, fornece às organizações uma solução abrangente e flexível para proteger seus ativos de dados mais críticos.  Ao aproveitar as tecnologias de proteção do ONTAP, a NetApp permite que você crie um cofre cibernético seguro, isolado e com isolamento, imune a ameaças cibernéticas em evolução.  Com a NetApp, você pode garantir a confidencialidade, a integridade e a disponibilidade dos seus dados, mantendo a agilidade e a eficiência da sua infraestrutura de armazenamento.
+
+Os principais recursos da arquitetura de referência da NetApp para um cofre cibernético incluem:
+
+* Infraestrutura de armazenamento segura e isolada (por exemplo, sistemas de armazenamento com isolamento de ar)
+* As cópias de segurança dos seus dados são imutáveis e indeléveis
+* Controles de acesso rigorosos e separados, verificação de vários administradores e autenticação multifator
+* Capacidades de restauração rápida de dados
+
+
+
+
+== Perguntas frequentes sobre o Cyber Vault
+
+.O Cyber Vault é um produto da NetApp?
+[%collapsible%open]
+====
+Não, "cyber vault" é um termo que abrange todo o setor.  A NetApp criou uma arquitetura de referência para facilitar aos clientes a criação de seus próprios cofres cibernéticos e o aproveitamento de dezenas de recursos de segurança do ONTAP para ajudar a proteger seus dados contra ameaças cibernéticas.  Mais informações estão disponíveis emlink:https://docs.netapp.com/us-en/netapp-solutions/cyber-vault/ontap-cyber-vault-overview.html["Site de documentação do ONTAP"^] .
+
+====
+.O Cyber Vault com NetApp é apenas outro nome para LockVault ou SnapVault?
+[%collapsible%open]
+====
+LockVault era um recurso do Data ONTAP 7-mode que não está disponível nas versões atuais do ONTAP.
+
+SnapVault era um termo antigo para o que agora é realizado com a política de cofre do SnapMirror.  Esta política permite que o destino retenha uma quantidade diferente de cópias do Snapshot do volume de origem.
+
+O Cyber Vault usa o SnapMirror com a política de cofre e o SnapLock Compliance juntos para criar uma cópia imutável e indelével dos dados.
+
+====
+.Qual hardware NetApp posso usar para um cofre cibernético, FAS, flash de capacidade ou flash de desempenho?
+[%collapsible%open]
+====
+Essa arquitetura de referência para proteção cibernética se aplica a todo o portfólio de hardware ONTAP .  Os clientes podem usar as plataformas AFF Série A, AFF Série C ou FAS como cofre.  Plataformas baseadas em flash fornecerão os tempos de recuperação mais rápidos, enquanto plataformas baseadas em disco fornecerão a solução mais econômica.  Dependendo da quantidade de dados que estão sendo recuperados e se várias recuperações estão acontecendo em paralelo, o uso de sistemas baseados em disco (FAS) pode levar dias ou semanas para ser concluído.  Consulte um representante da NetApp ou parceiro para dimensionar adequadamente uma solução de cofre cibernético para atender aos requisitos do negócio.
+
+====
+.Posso usar o Cloud Volumes ONTAP como uma fonte de cofre cibernético?
+[%collapsible%open]
+====
+Sim, no entanto, usar o CVO como fonte exige que os dados sejam replicados para um destino de cofre cibernético local, pois a SnapLock Compliance é um requisito para um cofre cibernético ONTAP .  A replicação de dados de uma instância CVO baseada em hiperescalador pode incorrer em cobranças de saída.
+
+====
+.Posso usar o Cloud Volumes ONTAP como um destino de cofre cibernético?
+[%collapsible%open]
+====
+A arquitetura do Cyber Vault depende da indelével conformidade do SnapLock da ONTAP e foi projetada para implementações locais.  Arquiteturas de Cyber Vault baseadas em nuvem estão sob investigação para publicação futura.
+
+====
+.Posso usar o ONTAP Select como uma fonte de cofre cibernético?
+[%collapsible%open]
+====
+Sim, o ONTAP Select pode ser usado como uma fonte para um destino de cofre cibernético baseado em hardware local.
+
+====
+.Posso usar o ONTAP Select como destino de cofre cibernético?
+[%collapsible%open]
+====
+Não, o ONTAP Select não deve ser usado como destino de cofre cibernético, pois não tem a capacidade de usar o SnapLock Compliance.
+
+====
+.Um cofre cibernético com NetApp usa apenas o SnapMirror?
+[%collapsible%open]
+====
+Não, uma arquitetura de cofre cibernético da NetApp aproveita muitos recursos do ONTAP para criar uma cópia de dados segura, isolada, protegida e protegida.  Para mais informações sobre quais técnicas adicionais podem ser usadas, veja a próxima pergunta.
+
+====
+.Existe alguma outra tecnologia ou configuração usada para o cofre cibernético?
+[%collapsible%open]
+====
+A base de um cofre cibernético da NetApp é a conformidade com SnapMirror e SnapLock Compliance, mas o uso de recursos ONTAP adicionais, como cópias de Snapshot à prova de violação, autenticação multifator (MFA), verificação de vários administradores, controle de acesso baseado em funções e registro de auditoria remota e local, melhora a segurança dos dados.
+
+====
+.O que torna as cópias do ONTAP Snapshot melhores do que outras para um cofre cibernético?
+[%collapsible%open]
+====
+As cópias do ONTAP Snapshot são imutáveis por padrão e podem se tornar indeléveis com o SnapLock Compliance.  Nem mesmo o suporte da NetApp consegue excluir as cópias do SnapLock Snapshot.  A melhor pergunta a se fazer é o que torna o NetApp Cyber Vault melhor do que outros Cyber Vaults do setor.  Primeiro, o ONTAP é o armazenamento mais seguro do planeta e obteve a validação do CSfC, que permite o armazenamento de dados secretos e ultrassecretos em repouso nas camadas de hardware e software.  Mais informações emlink:https://www.netapp.com/esg/trust-center/compliance/CSfC-Program/["O CSfC pode ser encontrado aqui"^] .  Além disso, o ONTAP pode ser isolado na camada de armazenamento, com o sistema de cofre cibernético controlando a replicação, permitindo que um espaço de ar seja criado dentro da rede de cofre cibernético.
+
+====
+.Um volume em um cofre cibernético pode usar o ONTAP Fabric Pool?
+[%collapsible%open]
+====
+Não, um volume de cofre cibernético (destino SnapLock Compliance SnapMirror ) não pode ser dividido em camadas usando o Fabric Pool, independentemente da política.
+
+image:ontap-cyber-vault-fabric-pool-configurations.png["Configurações suportadas pelo Fabric Pool do Cyber Vault"]
+
+
+NOTE: Existem vários cenários em que o pool Fabric *não pode* ser usado com um cofre cibernético.
+
+. As camadas frias do Fabric Pool *não podem* usar um cluster de cofre cibernético.  Isso ocorre porque a ativação do protocolo S3 invalida a natureza segura da arquitetura de referência do cofre cibernético.  Além disso, o bucket S3 usado para o pool de Fabric não pode ser protegido.
+. Os volumes de SnapLock Compliance no cofre cibernético *não podem* ser hierarquizados em um bucket S3, pois os dados estão bloqueados no volume.
+
+
+image:ontap-cyber-vault-fabric-pool-config-p-s-cv.png["Configurações com suporte do Fabric Pool do Cyber Vault para relacionamentos em cascata"]
+
+====
+.O ONTAP S3 Worm está disponível em um cofre cibernético?
+[%collapsible%open]
+====
+Não, o S3 é um protocolo de acesso a dados que invalida a natureza segura da arquitetura de referência.
+
+====
+.O NetApp Cyber Vault é executado em uma personalidade ou perfil ONTAP diferente?
+[%collapsible%open]
+====
+Não, é uma arquitetura de referência.  Os clientes podem usar olink:ontap-create-cyber-vault-task.html["arquitetura de referência"] e construir um cofre cibernético, ou pode usar olink:ontap-cyber-vault-ps-overview.html["Scripts do PowerShell para criar, proteger e validar"] um cofre cibernético.
+
+====
+.Posso ativar protocolos de dados como NFS, SMB e S3 em um cofre cibernético?
+[%collapsible%open]
+====
+Por padrão, os protocolos de dados devem ser desabilitados no cofre cibernético para torná-lo seguro.  No entanto, protocolos de dados podem ser habilitados no cofre cibernético para acessar dados para recuperação ou quando necessário.  Isso deve ser feito temporariamente e desativado após a recuperação ser concluída.
+
+====
+.É possível converter um ambiente SnapVault existente em um cofre cibernético ou é necessário redefinir tudo?
+[%collapsible%open]
+====
+Sim. Poderíamos pegar um sistema que é um destino SnapMirror (com política de cofre), desabilitar os protocolos de dados, fortalecer o sistema conformelink:https://docs.netapp.com/us-en/ontap/ontap-security-hardening/security-hardening-overview.html["Guia de endurecimento ONTAP"^] , isole-o em um local seguro e siga os outros procedimentos na arquitetura de referência para torná-lo um cofre cibernético sem precisar redefinir o destino.
+
+====
+*Tem alguma dúvida adicional?*  Envie um e-mail para mailto:ng-cyber-vault@netapp.com[ng-cyber-vault@netapp.com^, Dúvidas sobre o Cyber Vault, Gostaria de saber mais sobre: ] com suas perguntas!  Responderemos e adicionaremos suas perguntas às Perguntas Frequentes.

@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+keywords: Cyber vault, cybervault, cyber-vault, data protection, security, ransomware, ONTAP, hardening 
+permalink: cyber-vault/ontap-cyber-vault-hardening.html 
+summary: Etapas adicionais recomendadas para proteger um cofre cibernético para ONTAP 
+---
+= Fortalecimento do cofre cibernético
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Estas são recomendações adicionais para proteger um cofre cibernético ONTAP .  Consulte o guia de proteção ONTAP abaixo para obter mais recomendações e procedimentos.
+
+
+
+== Recomendações para o reforço do cofre cibernético
+
+* Isole os planos de gerenciamento do cofre cibernético
+* Não habilite LIFs de dados no cluster de destino, pois eles são um vetor de ataque adicional
+* No cluster de destino, limite o acesso LIF entre clusters ao cluster de origem com uma política de serviço
+* Segmente o LIF de gerenciamento no cluster de destino para acesso limitado com uma política de serviço e um host bastião
+* Restringir todo o tráfego de dados do cluster de origem para o cofre cibernético para permitir apenas as portas necessárias para o tráfego do SnapMirror
+* Sempre que possível, desabilite quaisquer métodos de acesso de gerenciamento desnecessários no ONTAP para diminuir a superfície de ataque
+* Habilitar registro de auditoria e armazenamento remoto de logs
+* Habilitar verificação de vários administradores e exigir verificação de um administrador fora dos seus administradores de armazenamento regulares (por exemplo, equipe CISO)
+* Implementar controles de acesso baseados em funções
+* Exigir autenticação administrativa multifator para o System Manager e ssh
+* Use autenticação baseada em token para scripts e chamadas de API REST
+
+
+Por favor, consulte olink:https://docs.netapp.com/us-en/ontap/ontap-security-hardening/security-hardening-overview.html["Guia de endurecimento ONTAP"] ,link:https://docs.netapp.com/us-en/ontap/multi-admin-verify/index.html["Visão geral da verificação de vários administradores"^] elink:https://www.netapp.com/media/17055-tr4647.pdf["Guia de autenticação multifator ONTAP"^] para saber como realizar essas etapas de endurecimento.

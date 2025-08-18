@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: whats-new.html 
+keywords: 'netapp, solutions, data management, what"s new, updates, change log' 
+summary: Registro de alterações recentes no material de apoio das soluções de gerenciamento de dados da NetApp . 
+---
+= Novidades nas soluções de gerenciamento de dados da NetApp
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Saiba o que há de novo em soluções de gerenciamento de dados.
+
+
+
+== 18 de agosto de 2025
+
+O site da NetApp Solutions agora é olink:https://docs.netapp.com/us-en/netapp-solutions-family/index.html["Família de soluções NetApp"^] , que inclui os seguintes sites:
+
+* link:https://docs.netapp.com/us-en/netapp-solutions-ai/index.html["Soluções de inteligência artificial da NetApp"^]
+* link:https://docs.netapp.com/us-en/netapp-solutions-containers/index.html["Soluções de contêiner NetApp"^]
+* Soluções de gerenciamento de dados da NetApp
+* link:https://docs.netapp.com/us-en/netapp-solutions-databases/index.html["Soluções de banco de dados NetApp"^]
+* link:https://docs.netapp.com/us-en/netapp-solutions-cloud/index.html["Soluções de nuvem pública e híbrida da NetApp"^]
+* link:https://docs.netapp.com/us-en/netapp-solutions-sap/index.html["Soluções NetApp para SAP"^]
+* link:https://docs.netapp.com/us-en/netapp-solutions-virtualization/index.html["Soluções de virtualização da NetApp"^]
+

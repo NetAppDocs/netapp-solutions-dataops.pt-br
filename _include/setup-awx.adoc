@@ -1,0 +1,89 @@
+= 
+:allow-uri-read: 
+
+
+Esta seção descreve as etapas necessárias para configurar os parâmetros no AWX/Ansible Tower que preparam o ambiente para consumir soluções automatizadas da NetApp .
+
+. Configurar o inventário.
++
+.. Navegue até Recursos → Inventário → Adicionar e clique em Adicionar inventário.
+.. Forneça o nome e os detalhes da organização e clique em Salvar.
+.. Na página Inventários, clique nos recursos de inventário que você acabou de criar.
+.. Se houver alguma variável de inventário, cole-a no campo de variáveis.
+.. Vá para o submenu Grupos e clique em Adicionar.
+.. Forneça o nome do grupo, copie as variáveis do grupo (se necessário) e clique em Salvar.
+.. Clique no grupo criado, vá para o submenu Hosts e clique em Adicionar novo host.
+.. Forneça o nome do host e o endereço IP do host, cole as variáveis do host (se necessário) e clique em Salvar.
+
+
+. Crie tipos de credenciais.  Para soluções envolvendo ONTAP, Element, VMware ou qualquer outra conexão de transporte baseada em HTTPS, você deve configurar o tipo de credencial para corresponder às entradas de nome de usuário e senha.
++
+.. Navegue até Administração → Tipos de credenciais e clique em Adicionar.
+.. Forneça o nome e a descrição.
+.. Cole o seguinte conteúdo na Configuração de entrada:
+
+
+
+
+[listing]
+----
+fields:
+- id: username
+type: string
+label: Username
+- id: password
+type: string
+label: Password
+secret: true
+- id: vsadmin_password
+type: string
+label: vsadmin_password
+secret: true
+----
+. Cole o seguinte conteúdo na Configuração do Injetor:
+
+
+[listing]
+----
+extra_vars:
+password: '{{ password }}'
+username: '{{ username }}'
+vsadmin_password: '{{ vsadmin_password }}'
+----
+. Configurar credenciais.
++
+.. Navegue até Recursos → Credenciais e clique em Adicionar.
+.. Insira o nome e os detalhes da organização.
+.. Selecione o tipo de credencial correto; se você pretende usar o login SSH padrão, selecione o tipo Máquina ou, alternativamente, selecione o tipo de credencial personalizado que você criou.
+.. Insira os outros detalhes correspondentes e clique em Salvar.
+
+
+. Configurar o projeto.
++
+.. Navegue até Recursos → Projetos e clique em Adicionar.
+.. Insira o nome e os detalhes da organização.
+.. Selecione Git para o Tipo de Credencial de Controle de Origem.
+.. Cole a URL de controle de origem (ou URL do clone do git) correspondente à solução específica.
+.. Opcionalmente, se o URL do Git tiver controle de acesso, crie e anexe a credencial correspondente em Credencial de Controle de Origem.
+.. Clique em Salvar.
+
+
+. Configurar o modelo de trabalho.
++
+.. Navegue até Recursos → Modelos → Adicionar e clique em Adicionar modelo de trabalho.
+.. Digite o nome e a descrição.
+.. Selecione o tipo de trabalho; Executar configura o sistema com base em um manual e Verificar executa uma execução de teste do manual sem realmente configurar o sistema.
+.. Selecione o inventário, o projeto e as credenciais correspondentes para o manual.
+.. Selecione o manual que você gostaria de executar como parte do modelo de tarefa.
+.. Normalmente as variáveis são coladas durante o tempo de execução.  Portanto, para que o prompt preencha as variáveis durante o tempo de execução, certifique-se de marcar a caixa de seleção Prompt on Launch correspondente ao campo Variável.
+.. Forneça quaisquer outros detalhes conforme necessário e clique em Salvar.
+
+
+. Inicie o modelo de trabalho.
++
+.. Navegue até Recursos → Modelos.
+.. Clique no modelo desejado e depois clique em Iniciar.
+.. Preencha quaisquer variáveis se solicitado na inicialização e clique em Iniciar novamente.
+
+
+
