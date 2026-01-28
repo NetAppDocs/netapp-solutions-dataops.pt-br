@@ -890,7 +890,6 @@
   <block id="469f9932f3c6cca10f7c8ab6fc82d6e1" category="list-text">Crie um novo SVM residindo no novo IPspace.</block>
   <block id="b43e377130ea68e28f57b5e451375083" category="list-text">Garanta que as políticas de roteamento do firewall estejam configuradas corretamente e que todas as regras sejam auditadas e atualizadas regularmente, conforme necessário.</block>
   <block id="e24611533a2b571534bc7f9a71e39703" category="section-title">ONTAP CLI ou via script de automação</block>
-  <block id="60a3dbbbd6a8ea76d9bf56aa0d6395d1" category="list-text">Proteja a administração com a Verificação Multiadministradora (MFA)</block>
   <block id="9b98a3da00d9a9709cdf9496422e8479" category="list-text">Habilite a criptografia para dados padrão "em trânsito" entre clusters.</block>
   <block id="cbe61f355ee5cc94da340a9c3272475b" category="list-text">SSH seguro com criptografia forte e imponha senhas seguras.</block>
   <block id="16c72d280102d2756d84bf9ae14b3379" category="list-text">Habilitar FIPS global.</block>
@@ -1521,4 +1520,5 @@
   <block id="acf055fa7efae33ce06471f448ae1267" category="sidebar">Cenários de clientes</block>
   <block id="c5071cdf8081474104ef1eee5ec6d784" category="sidebar">Migração de dados CIFS com ACLs de uma caixa de armazenamento de origem para ONTAP</block>
   <block id="212969b8fbef38a460a102c0de1dc0a4" category="list-text">Crie um compartilhamento NFS local para cada volume do Azure NetApp ou, para os Google Cloud NetApp Volumes (nível de serviço premium) na nuvem, para o catálogo XCP.</block>
+  <block id="61d7195d08cf43ed625cea7335343a3d" category="list-text">Proteja a administração com verificação multiadministrativa (MAV) além da autenticação multifator (MFA), aumentando a segurança do acesso administrativo ao storage VM de dados.</block>
 </blocks>
