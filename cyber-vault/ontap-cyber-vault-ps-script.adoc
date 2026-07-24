@@ -18,6 +18,7 @@ A NetApp criou umlink:https://github.com/NetApp/ransomeware-cybervault-automatio
 
 
 
+[[what-this-script-does]]
 == O que este script faz
 
 * Peering de cluster
@@ -31,6 +32,7 @@ A NetApp criou umlink:https://github.com/NetApp/ransomeware-cybervault-automatio
 
 
 
+[[how-to-use-this-script]]
 == Como usar este script
 
 link:https://github.com/NetApp/ransomeware-cybervault-automation["Baixe o script"^]e para usar o script, basta seguir os passos abaixo:
@@ -48,6 +50,7 @@ NOTE: O modo Cron pode ser usado para agendar a inatividade e a retomada da tran
 
 
 
+[[modes-of-operation]]
 == Modos de operação
 
 O script de automação fornece 3 modos de execução - `configure` , `analyze` e `cron` .

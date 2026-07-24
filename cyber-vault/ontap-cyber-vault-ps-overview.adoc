@@ -31,6 +31,7 @@ NOTE: A mesma solução é aplicável para criar o cofre cibernético designado 
 
 
 
+[[high-level-steps-to-create-a-ontap-cyber-vault]]
 == Etapas de alto nível para criar um cofre cibernético ONTAP
 
 * Criar relacionamento de peering
@@ -72,6 +73,7 @@ image:ontap-cyber-vault-air-gap.png["Etapas de alto nível para criar um cofre c
 
 
 
+[[solution-components]]
 == Componentes da solução
 
 NetApp ONTAP executando 9.15.1 em clusters de origem e destino.

@@ -18,6 +18,7 @@ Dimensionar um cofre cibernético requer entender quantos dados precisarão ser 
 
 
 
+[[performance-sizing-considerations]]
 == Considerações sobre dimensionamento de desempenho
 
 . Quais são os modelos de plataforma de origem (FAS v AFF A-Series v AFF C-Series)?
@@ -33,6 +34,7 @@ Dimensionar um cofre cibernético requer entender quantos dados precisarão ser 
 
 
 
+[[sizing-examples]]
 === Exemplos de dimensionamento
 
 Aqui estão exemplos de diferentes configurações de cofre cibernético.
@@ -41,6 +43,7 @@ image:ontap-cyber-vault-sizing.png["Opções de configuração do cofre ciberné
 
 
 
+[[capacity-sizing-considerations]]
 == Considerações sobre dimensionamento de capacidade
 
 A quantidade de espaço em disco necessária para um volume de destino do cofre cibernético ONTAP depende de vários fatores, sendo o mais importante a taxa de alteração dos dados no volume de origem.  O agendamento de backup e o agendamento de instantâneo no volume de destino afetam o uso do disco no volume de destino, e a taxa de alteração no volume de origem provavelmente não será constante.  É uma boa ideia fornecer um buffer de capacidade de armazenamento adicional acima daquela necessária para acomodar futuras mudanças no comportamento do usuário final ou do aplicativo.

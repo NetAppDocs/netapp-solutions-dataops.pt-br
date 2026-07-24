@@ -18,6 +18,7 @@ Esta seção fornece orientação de solução de problemas para migração de d
 
 
 
+[[error-1-xcp-failed-with-nfs3-error-70-stale-filehandle-error-in-the-xcp-log]]
 == Erro 1: XCP falhou com erro nfs3 70: erro de identificador de arquivo obsoleto no xcp.log
 
 *Razão e orientação.*
@@ -26,6 +27,7 @@ Monte a pasta de origem e verifique se a pasta existe.  Se não existir ou se ti
 
 
 
+[[error-2-netapp-nfs-destination-volume-has-space-but-xcp-failed-with-nfs3-error-28-no-space-left-on-device]]
 == Erro 2: O volume de destino do NetApp NFS tem espaço, mas o XCP falhou com o erro nfs3 28: não há espaço restante no dispositivo
 
 *Razão e orientação.*

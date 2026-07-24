@@ -18,6 +18,7 @@ Estas são recomendações adicionais para proteger um cofre cibernético ONTAP 
 
 
 
+[[cyber-vault-hardening-recommendations]]
 == Recomendações para o reforço do cofre cibernético
 
 * Isole os planos de gerenciamento do cofre cibernético

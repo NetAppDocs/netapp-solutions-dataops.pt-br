@@ -18,6 +18,7 @@ Esta seção fornece etapas detalhadas para migrar dados do NetApp Data ONTAP op
 
 
 
+[[transitioning-7-mode-nfsv3-storage-to-ontap-for-nfs-data]]
 == Transição do armazenamento NFSv3 de 7 modos para ONTAP para dados NFS
 
 Esta seção fornece o procedimento passo a passo na tabela a seguir para a transição de uma exportação NFSv3 de 7 modos de origem para um sistema ONTAP .
@@ -410,6 +411,7 @@ Depois `resume` termina de copiar os arquivos, execute `verify` novamente para q
 
 
 
+[[transitioning-7-mode-volume-snapshot-copies-to-ontap]]
 == Transição de cópias de instantâneo de volume de 7 modos para ONTAP
 
 Esta seção aborda o procedimento para transição de uma cópia do NetApp Snapshot de volume de origem do 7-Mode para o ONTAP.
@@ -797,6 +799,7 @@ xcp: resume '7msnap_res1': Values marked with a * include operations before resu
 
 
 
+[[migrating-aclv4-from-netapp-7-mode-to-a-netapp-storage-system]]
 == Migrando ACLv4 do NetApp 7-Mode para um sistema de armazenamento NetApp
 
 Esta seção aborda o procedimento passo a passo para a transição de uma exportação NFSv4 de origem para um sistema ONTAP .
@@ -806,6 +809,7 @@ NOTE: A NetApp pressupõe que o volume NFSv4 de origem seja exportado e montado 
 
 
 
+[[prerequisites-for-migrating-a-source-nfsv4-export-to-ontap]]
 === Pré-requisitos para migrar uma exportação NFSv4 de origem para o ONTAP
 
 Antes de migrar uma exportação NFSv4 de origem para o ONTAP, os seguintes pré-requisitos devem ser atendidos:
@@ -833,6 +837,7 @@ drwxr-xr-x --- root root 4KiB 4KiB 17m43s vol1/DIR1/DIR11/DIR2/DIR22
 ....
 
 
+[[subdirectories-options]]
 === Opções de subdiretórios
 
 As duas opções para trabalhar com subdiretórios são as seguintes:
@@ -1251,6 +1256,7 @@ Depois `resume` termina de copiar os arquivos, execute `verify` novamente para q
 
 
 
+[[transitioning-7-mode-smb-storage-to-ontap-for-cifs-data]]
 == Transição do armazenamento SMB de 7 modos para ONTAP para dados CIFS
 
 Esta seção aborda o procedimento passo a passo para a transição de um compartilhamento SMB de 7 modos de origem para um sistema ONTAP .

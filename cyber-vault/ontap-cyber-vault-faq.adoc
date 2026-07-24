@@ -18,6 +18,7 @@ Estas perguntas frequentes são destinadas a clientes e parceiros da NetApp .  E
 
 
 
+[[what-is-a-netapp-cyber-vault]]
 == O que é um cofre cibernético da NetApp ?
 
 O cofre cibernético é uma técnica específica de proteção de dados que envolve o armazenamento de dados em um ambiente isolado, separado da infraestrutura primária de TI.
@@ -30,6 +31,7 @@ Outros passos além das redes isoladas envolvem desabilitar todos os protocolos 
 
 
 
+[[netapps-approach-to-cyber-vault]]
 == Abordagem da NetApp para cofre cibernético
 
 O NetApp Cyber Vault, com tecnologia SnapLock, fornece às organizações uma solução abrangente e flexível para proteger seus ativos de dados mais críticos.  Ao aproveitar as tecnologias de proteção do ONTAP, a NetApp permite que você crie um cofre cibernético seguro, isolado e com isolamento, imune a ameaças cibernéticas em evolução.  Com a NetApp, você pode garantir a confidencialidade, a integridade e a disponibilidade dos seus dados, mantendo a agilidade e a eficiência da sua infraestrutura de armazenamento.
@@ -44,6 +46,7 @@ Os principais recursos da arquitetura de referência da NetApp para um cofre cib
 
 
 
+[[cyber-vault-frequently-asked-questions]]
 == Perguntas frequentes sobre o Cyber Vault
 
 .O Cyber Vault é um produto da NetApp?

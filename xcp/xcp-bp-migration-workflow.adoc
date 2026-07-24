@@ -22,6 +22,7 @@ image:xcp-bp-003.png["Figura mostrando diálogo de entrada/saída ou representan
 
 
 
+[[on-premises]]
 == No local
 
 O fluxo de trabalho de migração de qualquer NAS para o NetApp NAS inclui as seguintes etapas:
@@ -36,6 +37,7 @@ O fluxo de trabalho de migração de qualquer NAS para o NetApp NAS inclui as se
 
 
 
+[[cloud]]
 == Nuvem
 
 Para a nuvem, você pode seguir um fluxo de trabalho de migração local semelhante se a conectividade entre o local e a nuvem for conexão direta (AWS), ExpressRoute (Azure) ou interconexão de nuvem (GCP).

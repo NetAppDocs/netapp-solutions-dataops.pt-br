@@ -4,6 +4,7 @@
 
 
 
+[[capacity-sizing-considerations]]
 == Considerações sobre dimensionamento de capacidade
 
 A quantidade de espaço em disco necessária para um volume de destino do cofre cibernético ONTAP depende de vários fatores, sendo o mais importante a taxa de alteração dos dados no volume de origem.  O agendamento de backup e o agendamento de instantâneo no volume de destino afetam o uso do disco no volume de destino, e a taxa de alteração no volume de origem provavelmente não será constante.  É uma boa ideia fornecer um buffer de capacidade de armazenamento adicional acima daquela necessária para acomodar futuras mudanças no comportamento do usuário final ou do aplicativo.

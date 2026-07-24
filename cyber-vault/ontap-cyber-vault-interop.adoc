@@ -18,6 +18,7 @@ O hardware e o software ONTAP podem ser usados para criar uma configuração de 
 
 
 
+[[ontap-hardware-recommendations]]
 == Recomendações de hardware ONTAP
 
 Todos os conjuntos físicos unificados do ONTAP podem ser usados para uma implementação de cofre cibernético.
@@ -29,6 +30,7 @@ Todos os conjuntos físicos unificados do ONTAP podem ser usados para uma implem
 
 
 
+[[ontap-software-recommendations]]
 == Recomendações de software ONTAP
 
 A partir do ONTAP 9.14.1, você pode especificar períodos de retenção para rótulos SnapMirror específicos na política SnapMirror do relacionamento SnapMirror para que as cópias replicadas do Snapshot do volume de origem para o volume de destino sejam retidas pelo período de retenção especificado na regra.  Se nenhum período de retenção for especificado, o período de retenção padrão do volume de destino será usado.
@@ -37,6 +39,7 @@ A partir do ONTAP 9.13.1, você pode restaurar instantaneamente uma cópia bloqu
 
 
 
+[[metrocluster-configuration]]
 == Configuração do MetroCluster
 
 Para configurações do MetroCluster , você deve estar ciente do seguinte:

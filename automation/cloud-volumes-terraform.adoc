@@ -18,6 +18,7 @@ Esta solução documenta as implantações automatizadas do Cloud Volumes na AWS
 
 
 
+[[pre-requisites]]
 == Pré-requisitos
 
 . Terraform >= 0,13
@@ -28,12 +29,14 @@ Esta solução documenta as implantações automatizadas do Cloud Volumes na AWS
 
 
 
+[[provider-documentation]]
 == Documentação do provedor
 
 A documentação do provedor Terraform para o Cloud Manager está disponível em:link:https://registry.terraform.io/providers/NetApp/netapp-cloudmanager/latest/docs["https://registry.terraform.io/providers/NetApp/netapp-cloudmanager/latest/docs"]
 
 
 
+[[controlling-the-provider-version]]
 === Controlando a versão do provedor
 
 Observe que você também pode controlar a versão do provedor.  Isso é controlado por um bloco required_providers na sua configuração do Terraform.
@@ -55,6 +58,7 @@ Leia mais sobre o controle de versão do provedor.
 
 
 
+[[running-specific-modules]]
 == Executando módulos específicos
 
 .AWS

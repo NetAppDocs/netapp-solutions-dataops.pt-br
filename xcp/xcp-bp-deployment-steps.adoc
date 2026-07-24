@@ -18,6 +18,7 @@ Esta seção aborda as etapas de implantação do NetApp XCP para transferência
 
 
 
+[[test-bed-details]]
 == Detalhes do banco de testes
 
 A tabela a seguir fornece os detalhes do banco de testes que foi usado para esta implantação e validação de desempenho.
@@ -56,6 +57,7 @@ A tabela a seguir fornece os detalhes do banco de testes que foi usado para esta
 |===
 
 
+[[deployment-steps-nas]]
 == Etapas de implantação - NAS
 
 Para implantar o NetApp XCP para transferência de dados, primeiro instale e ative o software XCP no local de destino.  Você pode revisar os detalhes no https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=63064["Guia do usuário do NetApp XCP"^] .  Para fazer isso, siga os seguintes passos:
@@ -234,12 +236,14 @@ Para etapas detalhadas, consulte https://helpcenter.netwrix.com/NA/Configure_IT_
 
 
 
+[[deployment-steps-hdfsmaprfs-data-migration]]
 == Etapas de implantação - Migração de dados HDFS/MapRFS
 
 Nesta seção, discutimos o novo recurso do XCP chamado Hadoop Filesystem Data Transfer to NAS, que migra dados do HDFS/MapRFS para o NFS e vice-versa.
 
 
 
+[[prerequisites]]
 === Pré-requisitos
 
 Para o recurso MapRFS/HDFS, você deve executar o seguinte procedimento em um ambiente de usuário não root.  Normalmente, o usuário não root é hdfs, mapr ou um usuário que tem permissão para fazer alterações no sistema de arquivos HDFS e MapRFS.
@@ -272,6 +276,7 @@ Nesta versão, oferecemos suporte a operações de digitalização, cópia e ver
 
 
 
+[[deployment-steps-non-root-user-migrates-hdfsmaprfs-data-to-netapp-nfs]]
 === Etapas de implantação - Usuário não root migra dados HDFS/MaprFS para NetApp NFS
 
 . Siga os mesmos passos mencionados nos passos 1 a 9 da seção etapas para implantação.

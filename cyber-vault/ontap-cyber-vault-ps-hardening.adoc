@@ -20,10 +20,12 @@ O ONTAP fornece um conjunto de controles que permitem proteger o armazenamento O
 
 
 
+[[hardening-best-practices]]
 == Melhores práticas de proteção
 
 
 
+[[manual-steps]]
 === Etapas manuais
 
 . Crie um usuário designado com função administrativa predefinida e personalizada.
@@ -34,6 +36,7 @@ O ONTAP fornece um conjunto de controles que permitem proteger o armazenamento O
 
 
 
+[[ontap-cli-or-via-automation-script]]
 === ONTAP CLI ou via script de automação
 
 . Proteja a administração com verificação multiadministrativa (MAV) além da autenticação multifator (MFA), aumentando a segurança do acesso administrativo ao storage VM de dados.

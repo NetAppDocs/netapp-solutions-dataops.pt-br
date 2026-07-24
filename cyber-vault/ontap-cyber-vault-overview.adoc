@@ -23,6 +23,7 @@ NOTE: A partir de julho de 2024, o conteúdo de relatórios técnicos publicados
 
 
 
+[[what-is-a-cyber-vault]]
 == O que é um cofre cibernético?
 
 Um cofre cibernético é uma técnica específica de proteção de dados que envolve o armazenamento de dados críticos em um ambiente isolado, separado da infraestrutura primária de TI.
@@ -33,6 +34,7 @@ Os backups com air-gapping que usam métodos tradicionais envolvem a criação d
 
 
 
+[[netapps-approach-to-cyber-vault]]
 == Abordagem da NetApp para cofre cibernético
 
 Os principais recursos da arquitetura de referência da NetApp para um cofre cibernético incluem:

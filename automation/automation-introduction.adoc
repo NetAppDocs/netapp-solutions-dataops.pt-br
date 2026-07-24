@@ -18,6 +18,7 @@ A automação de soluções da NetApp permite que o cliente automatize a implant
 
 
 
+[[introduction]]
 == Introdução
 
 Ao fornecer soluções para atender aos desafios empresariais atuais, a NetApp fornece soluções com os seguintes objetivos:

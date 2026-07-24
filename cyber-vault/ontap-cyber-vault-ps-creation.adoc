@@ -18,6 +18,7 @@ Os backups com air-gapping que usam métodos tradicionais envolvem a criação d
 
 
 
+[[pre-requisites]]
 == Pré-requisitos
 
 Antes de iniciar as etapas da próxima seção deste documento, certifique-se de que os seguintes pré-requisitos sejam atendidos:
@@ -39,6 +40,7 @@ NOTE: O cluster do Cyber Vault pode estar no mesmo data center ou em um data cen
 
 
 
+[[steps-to-create-a-ontap-cyber-vault]]
 == Etapas para criar um cofre cibernético ONTAP
 
 . Use o ONTAP CLI ou o System Manager para inicializar o relógio de conformidade.

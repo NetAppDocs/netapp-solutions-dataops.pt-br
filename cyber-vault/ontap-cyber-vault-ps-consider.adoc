@@ -18,6 +18,7 @@ Há considerações adicionais ao projetar e implantar um cofre cibernético bas
 
 
 
+[[capacity-sizing-considerations]]
 == Considerações sobre dimensionamento de capacidade
 
 A quantidade de espaço em disco necessária para um volume de destino do cofre cibernético ONTAP depende de vários fatores, sendo o mais importante a taxa de alteração dos dados no volume de origem.  O agendamento de backup e o agendamento de instantâneo no volume de destino afetam o uso do disco no volume de destino, e a taxa de alteração no volume de origem provavelmente não será constante.  É uma boa ideia fornecer um buffer de capacidade de armazenamento adicional acima daquela necessária para acomodar futuras mudanças no comportamento do usuário final ou do aplicativo.
@@ -72,6 +73,7 @@ NOTE: Considere o crescimento dos dados ao longo do tempo para garantir que o di
 
 
 
+[[performance-impact-on-primary-source]]
 == Impacto no desempenho no primário/fonte
 
 Como a transferência de dados é uma operação pull, o impacto no desempenho do armazenamento primário pode variar dependendo da carga de trabalho, do volume de dados e da frequência dos backups.  No entanto, o impacto geral no desempenho do sistema primário é geralmente moderado e gerenciável, pois a transferência de dados é projetada para descarregar tarefas de proteção de dados e backup para o sistema de armazenamento do cofre cibernético.  Durante a configuração inicial do relacionamento e o primeiro backup completo, uma quantidade significativa de dados é transferida do sistema primário para o sistema de cofre cibernético (o volume SnapLock Compliance ).  Isso pode levar ao aumento do tráfego de rede e da carga de E/S no sistema primário.  Após a conclusão do backup completo inicial, o ONTAP só precisa rastrear e transferir os blocos que foram alterados desde o último backup.  Isso resulta em uma carga de E/S muito menor em comparação à replicação inicial.  Atualizações incrementais são eficientes e têm impacto mínimo no desempenho do armazenamento primário.  O processo do vault é executado em segundo plano, o que reduz as chances de interferência nas cargas de trabalho de produção do sistema primário.
