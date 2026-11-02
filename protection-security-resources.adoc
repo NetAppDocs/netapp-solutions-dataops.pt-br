@@ -33,7 +33,7 @@ Akash Gupta, NetApp Girish Chanchlani, Commvault
 
 O TR-4320 descreve a arquitetura de referência e as práticas recomendadas ao usar o armazenamento NetApp E-Series em um ambiente Commvault Data Platform V11.  A Commvault e a NetApp desenvolveram em conjunto esta arquitetura de referência para fornecer orientação para implantações da Commvault Data Platform V11 com armazenamento NetApp E-Series, o que acelerará o tempo de aplicação desta solução.
 
-link:https://www.netapp.com/pdf.html?item=/media/17042-tr4320pdf.pdf["TR-4320: NetApp E-Series e Commvault Data Platform V11 - arquitetura de referência e práticas recomendadas de armazenamento"^]
+link:https://www.netapp.com/pdf.html?item=/media/17042-tr4320.pdf["TR-4320: NetApp E-Series e Commvault Data Platform V11 - arquitetura de referência e práticas recomendadas de armazenamento"^]
 
 
 
@@ -44,7 +44,7 @@ Akash Gupta, NetApp Shawn Lieu (Américas), Stefan Renner (EMEA) e Michael Cade 
 
 O TR-4471 descreve a arquitetura de referência e as práticas recomendadas ao usar o armazenamento NetApp E-Series em um ambiente Veeam Backup & Replication 9.5.
 
-link:https://www.netapp.com/pdf.html?item=/media/17159-tr4471pdf.pdf["TR-4471: Arquitetura de referência das séries E e EF e práticas recomendadas de armazenamento com Veeam Backup  Replication 9.5"^]
+link:https://www.netapp.com/pdf.html?item=/media/17159-tr4471.pdf["TR-4471: Arquitetura de referência das séries E e EF e práticas recomendadas de armazenamento com Veeam Backup  Replication 9.5"^]
 
 
 
@@ -55,4 +55,4 @@ Akash Gupta e Principled Technologies, NetApp
 
 TR-4704 descreve a implantação do Veritas NetBackup no armazenamento NetApp E-Series.
 
-link:https://www.netapp.com/pdf.html?item=/media/16433-tr-4704pdf.pdf["TR-4704: Implantando o Veritas NetBackup com armazenamento NetApp E-Series"^]
+link:https://www.netapp.com/pdf.html?item=/media/16433-tr-4704.pdf["TR-4704: Implantando o Veritas NetBackup com armazenamento NetApp E-Series"^]

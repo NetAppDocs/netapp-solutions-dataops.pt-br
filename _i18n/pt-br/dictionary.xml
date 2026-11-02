@@ -684,7 +684,6 @@
   <block id="645198fb2e03205a7f761aeaff8ef26f" category="inline-link-macro">Introdução à automação de soluções NetApp e Ansible</block>
   <block id="4e9de62bec55cb82f4c1cd06fda641ec" category="paragraph">Para mais informações, visite<block ref="8306967267ef07392858b509a9329df9" category="inline-link-macro-rx"></block></block>
   <block id="8ad7837dca490e02340e5510135b8589" category="inline-link-macro">formulário de solicitação de automação</block>
-  <block id="02e0e745ea83a0b975796e4741d478b8" category="paragraph">Para solicitar a automação, preencha o<block ref="cb4462fd8f35840b40d613c14df7645c" category="inline-link-macro-rx"></block> .</block>
   <block id="79954394076a66945903422060c4d147" category="summary">As etapas incluídas nesta página ajudarão a criar uma solução de cofre cibernético baseada em ONTAP</block>
   <block id="ccdb43ad79994581f29c244aafca268c" category="doc">Criando um cofre cibernético com ONTAP</block>
   <block id="50ff0c4edfe97bd6906d70c7ad767db5" category="paragraph">As etapas abaixo ajudarão na criação de um cofre cibernético com o ONTAP.</block>
@@ -1067,16 +1066,13 @@
   <block id="23b69f42a62554346d10d302e32866df" category="paragraph">Akash Gupta, NetApp Girish Chanchlani, Commvault</block>
   <block id="451f1cdad20049e4046b157a54826db1" category="paragraph">O TR-4320 descreve a arquitetura de referência e as práticas recomendadas ao usar o armazenamento NetApp E-Series em um ambiente Commvault Data Platform V11.  A Commvault e a NetApp desenvolveram em conjunto esta arquitetura de referência para fornecer orientação para implantações da Commvault Data Platform V11 com armazenamento NetApp E-Series, o que acelerará o tempo de aplicação desta solução.</block>
   <block id="b5132c157b5da84909699e1aad5ea13d" category="inline-link-macro">TR-4320: NetApp E-Series e Commvault Data Platform V11 - arquitetura de referência e práticas recomendadas de armazenamento</block>
-  <block id="65c8e697e97b6ce1bd59d8334eaaab6f" category="paragraph"><block ref="65c8e697e97b6ce1bd59d8334eaaab6f" category="inline-link-macro-rx"></block></block>
   <block id="849bdf40e7fa0e2cab1cb845682e6f56" category="section-title">TR-4471: Arquitetura de referência das séries E e EF e práticas recomendadas de armazenamento com Veeam Backup &amp; Replication 9.5</block>
   <block id="febdd047851001456a2f0c683cfcfd2b" category="paragraph">Akash Gupta, NetApp Shawn Lieu (Américas), Stefan Renner (EMEA) e Michael Cade (Desempenho), Veeam</block>
   <block id="3bad2cd66e539f0136fbf484133914dd" category="paragraph">O TR-4471 descreve a arquitetura de referência e as práticas recomendadas ao usar o armazenamento NetApp E-Series em um ambiente Veeam Backup &amp; Replication 9.5.</block>
   <block id="f86686bed105d7053fbb06167a05f38e" category="inline-link-macro">TR-4471: Arquitetura de referência das séries E e EF e práticas recomendadas de armazenamento com Veeam Backup &amp; Replication 9.5</block>
-  <block id="8a9473d2b45da95a2d08524f5b182c4d" category="paragraph"><block ref="30941a222a593c860776bbf0831d36d0" category="inline-link-macro-rx"></block></block>
   <block id="f0a30c2a34036665913459cc735f4786" category="section-title">TR-4704: Implantando o Veritas NetBackup com armazenamento NetApp E-Series</block>
   <block id="d223d0d947999082ea93b57a68b3614b" category="paragraph">Akash Gupta e Principled Technologies, NetApp</block>
   <block id="9c993f8d3d3aa7be9c86474635154c12" category="paragraph">TR-4704 descreve a implantação do Veritas NetBackup no armazenamento NetApp E-Series.</block>
-  <block id="7ff53b7713dd7f38a4729f8a1a48f24e" category="paragraph"><block ref="7ff53b7713dd7f38a4729f8a1a48f24e" category="inline-link-macro-rx"></block></block>
   <block id="e22b4cfabd54ac34f636ba227f9e63f3" category="summary">Registro de alterações recentes no material de apoio das soluções de gerenciamento de dados da NetApp .</block>
   <block id="ee9b834576787c7b5bf70f767336cc2a" category="doc">Novidades nas soluções de gerenciamento de dados da NetApp</block>
   <block id="d32acb669b8cc0767086c8f950cbb1a5" category="paragraph">Saiba o que há de novo em soluções de gerenciamento de dados.</block>
@@ -1304,7 +1300,6 @@
   <block id="1cd06f171a5a99926a67bd673014f765" category="paragraph">A documentação do XCP fornece várias opções (com exemplos) para o<block ref="53aefec08170b2ebed981a0a86d0dbe0" prefix=" " category="inline-code"></block> ,<block ref="12cba3ee81cf4a793796a51b6327c678" prefix=" " category="inline-code"></block> ,<block ref="63ad9d34f3503826e5f649ae6b7ac92c" prefix=" " category="inline-code"></block> , e<block ref="e8418d1d706cd73548f9f16f1d55ad6e" prefix=" " category="inline-code"></block> operações.  Para mais informações, consulte o<block ref="ae77d8ba86ab9e3027c314c6b4922595" category="inline-link-rx"></block> .</block>
   <block id="efa146517859e051c07fabac4c88d3e7" category="admonition">Os clientes do Windows devem copiar os dados usando listas de controle de acesso (ACLs).  A NetApp recomenda usar o comando<block ref="1b5d03dc1e4b5c3623897fd210394888" prefix=" " category="inline-code"></block> .  Para obter o desempenho máximo, considerando o volume de origem que possui dados SMB com ACL e os dados acessíveis por NFS e SMB, o destino deve ser um volume NTFS.  Usando o XCP (versão NFS), copie os dados do servidor Linux e execute a sincronização do XCP (versão SMB) com o<block ref="4332bdcfbd72db6a4dae51bd101af3d6" prefix=" " category="inline-code"></block> e<block ref="0e638f18c7569b1e062f20f430b0a5fc" prefix=" " category="inline-code"></block> opções do servidor Windows para copiar as ACLs dos dados de origem para os dados SMB de destino.</block>
   <block id="85760de676a9f74f28f26115c39c9a0b" category="inline-link">Configurando a política 'Gerenciar auditoria e log de segurança'</block>
-  <block id="a0251b301ad566d86ffa3916c5510295" category="paragraph">Para etapas detalhadas, consulte<block ref="06fdba77988da3047baf401e4fdefca5" category="inline-link-rx"></block> .</block>
   <block id="0957326f089aaf98a5b7b9110a2675cd" category="section-title">Etapas de implantação - Migração de dados HDFS/MapRFS</block>
   <block id="1f43fc63f63aad0b707e06b0753182a1" category="paragraph">Nesta seção, discutimos o novo recurso do XCP chamado Hadoop Filesystem Data Transfer to NAS, que migra dados do HDFS/MapRFS para o NFS e vice-versa.</block>
   <block id="ee68e5b99222bbc29a480fcb0d1d6ee2" category="section-title">Pré-requisitos</block>
@@ -1521,4 +1516,9 @@
   <block id="c5071cdf8081474104ef1eee5ec6d784" category="sidebar">Migração de dados CIFS com ACLs de uma caixa de armazenamento de origem para ONTAP</block>
   <block id="212969b8fbef38a460a102c0de1dc0a4" category="list-text">Crie um compartilhamento NFS local para cada volume do Azure NetApp ou, para os Google Cloud NetApp Volumes (nível de serviço premium) na nuvem, para o catálogo XCP.</block>
   <block id="61d7195d08cf43ed625cea7335343a3d" category="list-text">Proteja a administração com verificação multiadministrativa (MAV) além da autenticação multifator (MFA), aumentando a segurança do acesso administrativo ao storage VM de dados.</block>
+  <block id="8cbb26daa2814b121bc0187f41d2aa49" category="paragraph">Para solicitar a automação, preencha o <block ref="d6d30ca71a829656960b3c2afe5d3977" category="inline-link-macro-rx"></block>.</block>
+  <block id="ca741a1e5f4824bdceff5803b8e568e2" category="paragraph"><block ref="ca741a1e5f4824bdceff5803b8e568e2" category="inline-link-macro-rx"></block></block>
+  <block id="9e04934e2b5f8155e913240186c62981" category="paragraph"><block ref="e2f985c362d1ae2cbcacb384126f0b8a" category="inline-link-macro-rx"></block></block>
+  <block id="80055df86a3c2b11ad0dfb840b88ecf3" category="paragraph"><block ref="80055df86a3c2b11ad0dfb840b88ecf3" category="inline-link-macro-rx"></block></block>
+  <block id="2691288a52cb10d2ef1865e2cda3c957" category="paragraph">Para obter instruções detalhadas, consulte<block ref="f740fe36a9dcef71f194f30f8caa8d00" category="inline-link-rx"></block>.</block>
 </blocks>
